@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnumComparisionApp", "EnumComparisionApp\EnumComparisionApp.csproj", "{95245F5C-E193-4F1B-84B0-51E995BBBA23}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HasConversion", "EntityFrameworkCoreHasConversion\HasConversion.csproj", "{B9B89417-3D10-4696-BB6C-AAF04149AC9A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AD961A85-87A2-4270-B5E9-27DACCE3CB6D}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95245F5C-E193-4F1B-84B0-51E995BBBA23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95245F5C-E193-4F1B-84B0-51E995BBBA23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95245F5C-E193-4F1B-84B0-51E995BBBA23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95245F5C-E193-4F1B-84B0-51E995BBBA23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9B89417-3D10-4696-BB6C-AAF04149AC9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9B89417-3D10-4696-BB6C-AAF04149AC9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9B89417-3D10-4696-BB6C-AAF04149AC9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9B89417-3D10-4696-BB6C-AAF04149AC9A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {19B0CC37-558B-4659-8E36-67B3EAE8E133}
+	EndGlobalSection
+EndGlobal
