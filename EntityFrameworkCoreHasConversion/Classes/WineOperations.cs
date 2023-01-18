@@ -69,7 +69,7 @@ public class WineOperations
 
 
         Console.WriteLine();
-        var rose = context.Wines.Where(x => x.WineType == WineType.Rose).ToList();
+        List<Wine> rose = context.Wines.Where(x => x.WineType == WineType.Rose).ToList();
 
         AnsiConsole.MarkupLine("[white on red]Rose[/]");
         if (rose.Count == 0)

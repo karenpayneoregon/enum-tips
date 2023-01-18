@@ -1,6 +1,6 @@
 ﻿# Example for using enum in EF Core 
 
-Main Model, Wine
+:pushpin: Main Model: Wine
 
 ```csharp
 public class Wine
@@ -13,7 +13,7 @@ public class Wine
 ```
 
 
-Our enum for types of Wine
+:pushpin: Our enum for types of Wine
 
 ```csharp
 public enum WineType : int
@@ -24,7 +24,33 @@ public enum WineType : int
 }
 ```
 
+:pushpin: Setup conversion in the DbContext, `WineType` to `int`
 
 ```csharp
-
+public class WineContext : DbContext
+{
+    public DbSet<Wine> Wines { get; set; }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        => optionsBuilder.UseSqlServer(ConfigurationHelper.ConnectionString())
+            .LogTo(message => 
+                Debug.WriteLine(message), 
+                LogLevel.Information);
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder
+            .Entity<Wine>()
+            .Property(e => e.WineType)
+            .HasConversion<int>();
+    }
+}
 ```
+
+:pushpin: Querying for a specific wine category
+
+```csharp
+List<Wine> rose = context.Wines.Where(x => x.WineType == WineType.Rose).ToList();
+```
+
+## See also
+
+[EF Core Value Conversions](https://github.com/karenpayneoregon/ef-core-transforming)
