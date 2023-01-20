@@ -24,8 +24,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Update="Items.txt">
+		<None Update="Transactions1.txt">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="Transactions2.txt">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
 	</ItemGroup>
 

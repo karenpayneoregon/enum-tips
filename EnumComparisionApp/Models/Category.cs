@@ -1,4 +1,4 @@
-﻿namespace EnumComparisionApp.Classes;
+﻿namespace EnumComparisionApp.Models;
 
 public enum Category
 {

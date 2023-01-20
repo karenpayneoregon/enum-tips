@@ -14,7 +14,7 @@ internal partial class Program
 
         foreach (var cat in all)
         {
-            Console.WriteLine(cat);
+            Console.WriteLine($"\t{cat}");
         }
 
 
@@ -26,7 +26,7 @@ internal partial class Program
 
         foreach (var cat in noSelect)
         {
-            Console.WriteLine(cat);
+            Console.WriteLine($"\t{cat}");
         }
 
 
@@ -39,7 +39,7 @@ internal partial class Program
 
         foreach (var cat in list)
         {
-            Console.WriteLine(cat);
+            Console.WriteLine($"\t{cat}");
         }
 
 
@@ -47,14 +47,12 @@ internal partial class Program
 
         foreach (var value in Enum.GetValues(typeof(BookCategories)).Cast<int>().ToList())
         {
-            Console.WriteLine(value);
+            Console.WriteLine($"\t{value}");
         }
 
         Console.ReadLine();
     }
 
-    public static List<string> EnumToList(Type sender)
-    {
-        return Enum.GetNames(sender).ToList();
-    }
+    public static List<string> EnumToList(Type sender) 
+        => Enum.GetNames(sender).ToList();
 }

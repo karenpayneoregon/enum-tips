@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace DropdownEumRazorPages.Pages;
 public class IndexModel : PageModel
 {
-    public string? Message { get; set; }
+    public string Message { get; set; }
     private readonly ILogger<IndexModel> _logger;
 
     public IndexModel(ILogger<IndexModel> logger)

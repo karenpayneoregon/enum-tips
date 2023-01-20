@@ -9,15 +9,19 @@ public class WineOperations
     /// <summary>
     /// Query wines
     /// </summary>
-    /// <param name="reCreate">if true creates the Wine table and populates it, false if the database exists</param>
+    /// <param name="create">if true creates the Wine table and populates it, false if the database exists</param>
     /// <remarks>
-    /// passing true for <see cref="reCreate"/> will wipe out the WineType table
+    /// passing true for <see cref="create"/> will wipe out the WineType table
     /// </remarks>
-    public static void Run(bool reCreate = false)
+    public static void Run(bool create = false)
     {
         using var context = new WineContext();
             
-        if (reCreate)
+        /*
+         * pass create = true to create the database and populate, otherwise a
+         * runtime exception is thrown.
+         */
+        if (create)
         {
             context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
@@ -40,10 +44,17 @@ public class WineOperations
                 WineType = WineType.White,
             });
 
+            context.Wines.Add(new Wine
+            {
+                Name = "White Zinfandel",
+                WineType = WineType.Rose,
+            });
+
             context.SaveChanges();
         }
 
         AnsiConsole.MarkupLine("[white on red]Grouped[/]");
+
         var allWinesGrouped = context.Wines
             .GroupBy( wine => wine.WineType)
             .Select(w => new {w.Key, List = w.ToList()})
@@ -61,7 +72,9 @@ public class WineOperations
         Console.WriteLine();
 
         var all = context.Wines.ToList();
+        
         AnsiConsole.MarkupLine("[white on red]All[/]");
+
         foreach (var wine in all)
         {
             Console.WriteLine($"{wine.WineType,-15}{wine.Name}");
@@ -69,7 +82,8 @@ public class WineOperations
 
 
         Console.WriteLine();
-        List<Wine> rose = context.Wines.Where(x => x.WineType == WineType.Rose).ToList();
+
+        List<Wine> rose = context.Wines.Where(wine => wine.WineType == WineType.Rose).ToList();
 
         AnsiConsole.MarkupLine("[white on red]Rose[/]");
         if (rose.Count == 0)
@@ -86,13 +100,12 @@ public class WineOperations
 
 
         AnsiConsole.MarkupLine("[white on red]Red[/]");
-        var red = context.Wines.Where(x => x.WineType == WineType.Red).ToList();
+
+        var red = context.Wines.Where(wine => wine.WineType == WineType.Red).ToList();
         foreach (var wine in red)
         {
             Console.WriteLine($"{wine.Name,30}");
         }
 
-
     }
-
 }

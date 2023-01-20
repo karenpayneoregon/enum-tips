@@ -1,4 +1,0 @@
-﻿1,Product1,Beverages
-2,Product2,Produce
-3,Product3,DairyProducts
-4,Product4,airyProducts

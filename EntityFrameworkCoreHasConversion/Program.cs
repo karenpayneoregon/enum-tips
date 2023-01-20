@@ -11,6 +11,5 @@ namespace HasConversion
             Console.ReadLine();
         }
 
-
     }
 }
