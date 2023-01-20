@@ -16,7 +16,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnumToListApp", "EnumToList
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnumGetDescriptionsApp", "EnumGetDescriptionsApp\EnumGetDescriptionsApp.csproj", "{C4B08CA4-0A16-453A-B163-D5E253E44DB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DropdownEumRazorPages", "DropdownEumRazorPages\DropdownEumRazorPages.csproj", "{A7E23C7F-C039-41CC-A924-44D7E9BF78D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DropdownEumRazorPages", "DropdownEumRazorPages\DropdownEumRazorPages.csproj", "{A7E23C7F-C039-41CC-A924-44D7E9BF78D8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SortByColumnNameApp", "SortByColumnNameApp\SortByColumnNameApp.csproj", "{10DB9F9D-3108-484A-B762-EF0D7D50C7FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +46,10 @@ Global
 		{A7E23C7F-C039-41CC-A924-44D7E9BF78D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7E23C7F-C039-41CC-A924-44D7E9BF78D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7E23C7F-C039-41CC-A924-44D7E9BF78D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10DB9F9D-3108-484A-B762-EF0D7D50C7FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10DB9F9D-3108-484A-B762-EF0D7D50C7FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10DB9F9D-3108-484A-B762-EF0D7D50C7FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10DB9F9D-3108-484A-B762-EF0D7D50C7FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
