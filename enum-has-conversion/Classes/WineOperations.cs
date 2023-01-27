@@ -29,15 +29,14 @@ public class WineOperations
 
         Console.WriteLine();
 
-        var all = context.Wines.ToList();
+        List<Wine> allWines = context.Wines.ToList();
         
         AnsiConsole.MarkupLine("[white on red]All[/]");
 
-        foreach (var wine in all)
+        foreach (var wine in allWines)
         {
-            Console.WriteLine($"{wine.WineType,-15}{wine.Name}");
+            Console.WriteLine($"{wine.WineType,-8}{wine.Name}");
         }
-
 
         Console.WriteLine();
 
@@ -55,11 +54,10 @@ public class WineOperations
                 Console.WriteLine($"{wine.Name,30}");
             }
         }
-
-
+        
         AnsiConsole.MarkupLine("[white on red]Red[/]");
 
-        var red = context.Wines.Where(wine => wine.WineType == WineType.Red).ToList();
+        List<Wine> red = context.Wines.Where(wine => wine.WineType == WineType.Red).ToList();
         foreach (var wine in red)
         {
             Console.WriteLine($"{wine.Name,30}");
