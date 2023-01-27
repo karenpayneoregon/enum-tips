@@ -10,7 +10,7 @@ internal partial class Program
     {
         // Run these once
         //Setup.CleanDatabase();
-        //Setup.Populate();
+        
 
         await DataOperations.SortCustomerOnCountryName();
         await DataOperations.SortCustomerOnContactLastName();

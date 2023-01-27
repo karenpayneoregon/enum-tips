@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.CodeDom.Compiler;
 
 namespace HasConversion.Models

@@ -2,7 +2,6 @@
 
 In this article, learn how to perform order by using Entity Framework Core where order by are dynamic on navigation properties.
 
-Our model will be a slimmed down version of NorthWind2022 used in [NorthWind2022Library](https://github.com/karenpayneoregon/ef-core-6-tips/tree/master/NorthWind2022Library) class project
 
 ![Short North Wind](assets/ShortNorthWind.png)
 
@@ -112,31 +111,7 @@ List<Customers> customers = await context.Customers
     .ToListAsync();
 ```
 
-That covers dynamic ordering of navigations, for top level ordering consider the following method which requires the property name as a string.
 
-```csharp
-public static List<T> OrderByPropertyName<T>(this List<T> list, string propertyName, Direction sortDirection)
-{
-
-    ParameterExpression param = Expression.Parameter(typeof(T), "item");
-
-    Expression<Func<T, object>> sortExpression = 
-        Expression.Lambda<Func<T, object>>(Expression.Convert(Expression.Property(param, propertyName), typeof(object)), param);
-
-    list = sortDirection switch
-    {
-        Direction.Ascending => list.AsQueryable().OrderBy(sortExpression).ToList(),
-        _ => list.AsQueryable().OrderByDescending(sortExpression).ToList()
-    };
-
-    return list;
-
-}
-```
-
-# Code comment
-
-This project is part of a larger version found [here](https://github.com/karenpayneoregon/ef-core-6-tips).
 
 
 # Summary

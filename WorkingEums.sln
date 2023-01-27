@@ -20,6 +20,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DropdownEumRazorPages", "Dr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SortByColumnNameApp", "SortByColumnNameApp\SortByColumnNameApp.csproj", "{10DB9F9D-3108-484A-B762-EF0D7D50C7FC}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnumHasConversion", "enum-has-conversion\EnumHasConversion.csproj", "{78B6EDAF-7320-40D9-AD60-5D8E49A8449F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,10 @@ Global
 		{10DB9F9D-3108-484A-B762-EF0D7D50C7FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10DB9F9D-3108-484A-B762-EF0D7D50C7FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10DB9F9D-3108-484A-B762-EF0D7D50C7FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78B6EDAF-7320-40D9-AD60-5D8E49A8449F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78B6EDAF-7320-40D9-AD60-5D8E49A8449F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78B6EDAF-7320-40D9-AD60-5D8E49A8449F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78B6EDAF-7320-40D9-AD60-5D8E49A8449F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

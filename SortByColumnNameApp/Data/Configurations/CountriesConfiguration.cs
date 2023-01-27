@@ -2,17 +2,16 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using SortByColumnNameApp.Models;
 
-namespace SortByColumnNameApp.Data.Configurations
+namespace SortByColumnNameApp.Data.Configurations;
+
+public partial class CountriesConfiguration : IEntityTypeConfiguration<Countries>
 {
-    public partial class CountriesConfiguration : IEntityTypeConfiguration<Countries>
+    public void Configure(EntityTypeBuilder<Countries> entity)
     {
-        public void Configure(EntityTypeBuilder<Countries> entity)
-        {
-            entity.HasKey(e => e.CountryIdentifier);
+        entity.HasKey(e => e.CountryIdentifier);
 
-            OnConfigurePartial(entity);
-        }
-
-        partial void OnConfigurePartial(EntityTypeBuilder<Countries> entity);
+        OnConfigurePartial(entity);
     }
+
+    partial void OnConfigurePartial(EntityTypeBuilder<Countries> entity);
 }
