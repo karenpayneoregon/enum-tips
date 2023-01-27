@@ -59,6 +59,7 @@ public class WineOperations
                 Console.WriteLine($"{wine.Name,30}");
             }
         }
+
         Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine("Red");
         Console.ResetColor();
