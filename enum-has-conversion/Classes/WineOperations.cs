@@ -5,7 +5,6 @@ namespace EnumHasConversion.Classes;
 
 public class WineOperations
 {
-
     public static void Run()
     {
         using var context = new WineContext();
@@ -13,12 +12,12 @@ public class WineOperations
 
         AnsiConsole.MarkupLine("[white on red]Grouped[/]");
 
-        var allWinesGrouped = context.Wines
+        List<WineGroupItem> allWinesGrouped = context.Wines
             .GroupBy( wine => wine.WineType)
-            .Select(w => new {w.Key, List = w.ToList()})
+            .Select(w => new WineGroupItem(w.Key, w.ToList()))
             .ToList();
 
-        foreach (var top in allWinesGrouped)
+        foreach (WineGroupItem top in allWinesGrouped)
         {
             Console.WriteLine(top.Key);
             foreach (var wine in top.List)

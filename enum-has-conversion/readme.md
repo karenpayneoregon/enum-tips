@@ -20,6 +20,23 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
         .HasConversion<int>();
 ```
 
+# Code
+
+Example to filter on a specific wine type
+
+```csharp
+List<Wine> rose = context.Wines.Where(wine => wine.WineType == WineType.Rose).ToList();
+```
+
+Example to group by wine type using a class [WineGroupItem](Models/WineGroupItem.cs) to provide the ability to pass to a caller.
+```csharp
+List<WineGroupItem> allWinesGrouped = context.Wines
+    .GroupBy( wine => wine.WineType)
+    .Select(w => new WineGroupItem(w.Key, w.ToList()))
+    .ToList();
+```
+
+
 # T4 Template
 
 This is optional, the idea is if someone added, deletes or modifies data in the table WineTypes the enum is also updated. To take this a step farther [invoke text transformation in the build process](https://learn.microsoft.com/en-us/visualstudio/modeling/code-generation-in-a-build-process?view=vs-2022&tabs=csharp).
