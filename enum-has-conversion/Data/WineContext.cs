@@ -35,7 +35,9 @@ public class WineContext : DbContext
             new Wine() { WineId = 1, Name = "Veuve Clicquot Rose", WineType = WineType.Red },
             new Wine() { WineId = 2, Name = "Whispering Angel Rose", WineType = WineType.Rose },
             new Wine() { WineId = 3, Name = "Pinot Grigi", WineType = WineType.White },
-            new Wine() { WineId = 4, Name = "White Zinfandel", WineType = WineType.Rose }
+            new Wine() { WineId = 4, Name = "Zinfandel", WineType = WineType.Rose },
+            new Wine() { WineId = 5, Name = "Banyuls Traditional French", WineType = WineType.Red },
+            new Wine() { WineId = 6, Name = "Louis Jdot", WineType = WineType.White }
         );
     }
 }

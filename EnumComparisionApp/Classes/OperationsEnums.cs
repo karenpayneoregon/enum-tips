@@ -51,7 +51,7 @@ internal class OperationsEnums
         {
             var parts = currentLine.Split(',');
 
-            if (parts is [_, _, "Beverages" or "DairyProducts" or "GrainsCereals" or "Produce", var amount])
+            if (parts is [_, _, "Beverages" or "beverages" or "DairyProducts" or "GrainsCereals" or "Produce", var amount])
             {
                 AnsiConsole.MarkupLine($"      [cyan]Match[/] [[{string.Join(",", parts)}]]");
                 AnsiConsole.MarkupLine($"             [yellow]{Enum.Parse(typeof(Category), parts[2])}[/] [green]{amount}[/]");

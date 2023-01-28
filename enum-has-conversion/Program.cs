@@ -1,6 +1,7 @@
 ﻿using EnumHasConversion.Classes;
 using EnumHasConversion.Data;
 using EnumHasConversion.Extensions;
+using EnumHasConversion.Models;
 
 namespace EnumHasConversion;
 
@@ -20,6 +21,8 @@ internal partial class Program
             context.Database.EnsureCreated();
             Console.Clear();
         }
+
+        //List<Wine> redWines = WineOperations.GetWinesByType(WineType.Red);
 
         WineOperations.Run();
 

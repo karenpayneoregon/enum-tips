@@ -5,6 +5,13 @@ namespace EnumHasConversion.Classes;
 
 public class WineOperations
 {
+    public static List<Wine> GetWinesByType(WineType wineType)
+    {
+        using var context = new WineContext();
+        return context.Wines
+            .Where(wine => wine.WineType == wineType)
+            .ToList();
+    }
     public static void Run()
     {
         using var context = new WineContext();
@@ -56,7 +63,10 @@ public class WineOperations
         
         AnsiConsole.MarkupLine("[white on red]Red[/]");
 
-        List<Wine> red = context.Wines.Where(wine => wine.WineType == WineType.Red).ToList();
+        List<Wine> red = context.Wines
+            .Where(wine => wine.WineType == WineType.Red)
+            .ToList();
+
         foreach (var wine in red)
         {
             Console.WriteLine($"{wine.Name,30}");
