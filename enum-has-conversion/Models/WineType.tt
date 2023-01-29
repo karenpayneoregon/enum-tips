@@ -7,6 +7,7 @@
 <#@ import namespace="System.Data.SqlClient" #>
 <#@ import namespace="System.IO" #>
 <#@ import namespace="System.Text.RegularExpressions" #>
+
 <#
     var tableName = Path.GetFileNameWithoutExtension(Host.TemplateFile);
     var path = Path.GetDirectoryName(Host.TemplateFile);
@@ -20,6 +21,7 @@
 #>
 using System.CodeDom.Compiler;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace <#= project.Properties.Item("DefaultNamespace").Value #><#= Path.GetDirectoryName(Host.TemplateFile).Remove(0, Path.GetDirectoryName(project.FileName).Length).Replace("\\", ".") #>
 {
@@ -41,10 +43,12 @@ namespace <#= project.Properties.Item("DefaultNamespace").Value #><#= Path.GetDi
     while(loop)
     {
 #>        [Description("<#= reader[columnDescription] #>")] 
+        [Display(Name = "<#= reader[columnDescription] #>")] 
         <#= Pascalize(reader[columnName]) #> = <#= reader[columnId] #><# loop = reader.Read(); #><#= loop ? ",\r\n" : string.Empty #><#
     }
 #>
-}
+
+    }
 }
 <#+
     private string Pascalize(object value)

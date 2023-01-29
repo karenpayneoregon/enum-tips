@@ -1,5 +1,7 @@
-﻿using System.CodeDom.Compiler;
+﻿
+using System.CodeDom.Compiler;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace EnumHasConversion.Models
 {
@@ -9,13 +11,14 @@ namespace EnumHasConversion.Models
     [GeneratedCode("TextTemplatingFileGenerator", "10")]
     public enum WineType
     {
-        [Description("Classic red")]
+        [Description("Classic red")] 
+        [Display(Name = "Classic red")] 
         Red = 1,
-        [Description("Dinner white")]
+        [Description("Dinner white")] 
+        [Display(Name = "Dinner white")] 
         White = 2,
-        [Description("Imported rose")]
-        Rose = 3,
-        [Description("Cheap wine")]
-        Cheap = 4
+        [Description("Imported rose")] 
+        [Display(Name = "Imported rose")] 
+        Rose = 3
     }
 }
