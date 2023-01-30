@@ -1,5 +1,8 @@
 ﻿# About
 
+> **Note**
+> T4 hit a snag with unsupported features
+
 Provides a method to get enum members descriptions
 
 

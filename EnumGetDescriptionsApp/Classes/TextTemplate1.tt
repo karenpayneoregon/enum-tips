@@ -1,0 +1,66 @@
+﻿<#@ template 
+    debug="true" 
+    hostspecific="true"
+    language="C#" 
+    compilerOptions="/langversion:11" #>
+
+
+
+<#@ assembly name="System" #>
+<#@ assembly name="System.Runtime" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.ComponentModel.Annotations" #>
+<#@ assembly name="System.ComponentModel.DataAnnotations" #> 
+<#@ import namespace="System.ComponentModel" #>
+<#@ import namespace="System.ComponentModel.DataAnnotations" #>
+<#@ Assembly Name="EnvDTE.dll" #>
+<#@ import namespace="EnvDTE" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Runtime" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.IO" #>
+<#@ output extension=".cs" #>
+
+<#
+    var tableName = Path.GetFileNameWithoutExtension(Host.TemplateFile);
+    var path = Path.GetDirectoryName(Host.TemplateFile);
+	IServiceProvider serviceProvider = (IServiceProvider)Host;
+	DTE dte = (DTE)serviceProvider.GetService(typeof(DTE));
+	Project project = dte.Solution.FindProjectItem(Host.TemplateFile).ContainingProject;
+#>
+<#
+ foreach(var en in (Categories[])Enum.GetValues(typeof(Categories)))
+ {#>
+public static class <#=@en.ToString()#> { public const string Value = "<#=@en.ToString()#>";public const string Text = "<#=@GetDisplayName(en)#>";}
+<#}#>
+<#+
+    private  string GetDisplayName(Enum value)
+    {
+        var memberInfo = value.GetType()
+            .GetMember(value.ToString())
+            .FirstOrDefault();
+
+        var attribute = memberInfo!.GetCustomAttribute<DisplayAttribute>();
+        return attribute != null ? attribute.GetName() : "";
+    }
+
+public enum Categories
+{
+
+    [Display(Name = "Select")]
+    MakeSelect = 0,
+    [Display(Name = "Space Travel")]
+    SpaceTravel = 1,
+    [Display(Name = "Adventure")]
+    Adventure = 2,
+    [Display(Name = "Popular sports")]
+    Sports = 3,
+    [Display(Name = "Cars")]
+    Automobile = 4,
+    [Display(Name = "Programming with C#")]
+    Programming = 5
+}
+#>

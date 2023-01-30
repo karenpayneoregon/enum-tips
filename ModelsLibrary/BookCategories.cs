@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace EnumGetDescriptionsApp.Classes;
+namespace ModelsLibrary;
 
 public enum BookCategories
 {
