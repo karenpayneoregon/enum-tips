@@ -22,11 +22,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnumHasConversion", "enum-h
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnumHasConversionSample", "EnumHasConversionSample\EnumHasConversionSample.csproj", "{CE0D24E3-EB09-4D22-8BFC-4913B99F3E98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KP_ConsoleAppNet71", "KP_ConsoleAppNet71\KP_ConsoleAppNet71.csproj", "{5072A43C-3840-4C05-A844-3EF375D687F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KP_ConsoleAppNet71", "KP_ConsoleAppNet71\KP_ConsoleAppNet71.csproj", "{5072A43C-3840-4C05-A844-3EF375D687F7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Class projects", "Class projects", "{7B6402A6-F078-4069-B426-F07DF813F56A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelsLibrary", "ModelsLibrary\ModelsLibrary.csproj", "{FD9F070C-9420-41F5-9FA8-30383E47ADEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModelsLibrary", "ModelsLibrary\ModelsLibrary.csproj", "{FD9F070C-9420-41F5-9FA8-30383E47ADEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -16,14 +16,20 @@ public class IndexModel : PageModel
     public Book Book { get; set; }
     public void OnGet()
     {
-        Book = new Book() {Category = BookCategories.Programming};
+        Book = new Book()
+        {
+            Title = "Learning EF Core 7",
+            Category = BookCategories.Programming
+        };
     }
-    public void OnPost()
+    public IActionResult OnPost()
     {
-        Message = $"Selection <span class=\"text-primary fw-bold\">{Book.Category}</span>";
         if (Book.Category == BookCategories.Select)
         {
             Message = "Please select a <span class=\"text-danger fw-bold\">category</span>";
+            return new PageResult();
         }
+
+        return RedirectToPage("Receiving", new { category = Book.Category });
     }
 }

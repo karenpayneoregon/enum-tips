@@ -16,7 +16,7 @@
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.IO" #>
 <#@ output extension=".cs" #>
-<# // Works with enum in same file but not outside of this file  #>
+<# // Works with enum in same file but not outside of this file.  #>
 <#
     var path = Path.GetDirectoryName(Host.TemplateFile);
 	IServiceProvider serviceProvider = (IServiceProvider)Host;
