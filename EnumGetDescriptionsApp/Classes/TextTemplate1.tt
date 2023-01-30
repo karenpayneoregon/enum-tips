@@ -1,11 +1,4 @@
-﻿<#@ template 
-    debug="true" 
-    hostspecific="true"
-    language="C#" 
-    compilerOptions="/langversion:11" #>
-
-
-
+﻿<#@ template debug="true" hostspecific="true" language="C#"  compilerOptions="/langversion:11" #>
 <#@ assembly name="System" #>
 <#@ assembly name="System.Runtime" #>
 <#@ assembly name="System.Core" #>
@@ -23,19 +16,21 @@
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.IO" #>
 <#@ output extension=".cs" #>
-
+<# // Works with enum in same file but not outside of this file  #>
 <#
-    var tableName = Path.GetFileNameWithoutExtension(Host.TemplateFile);
     var path = Path.GetDirectoryName(Host.TemplateFile);
 	IServiceProvider serviceProvider = (IServiceProvider)Host;
 	DTE dte = (DTE)serviceProvider.GetService(typeof(DTE));
 	Project project = dte.Solution.FindProjectItem(Host.TemplateFile).ContainingProject;
 #>
+namespace <#= project.Properties.Item("DefaultNamespace").Value #><#= Path.GetDirectoryName(Host.TemplateFile).Remove(0, Path.GetDirectoryName(project.FileName).Length).Replace("\\", ".") #>
+{
 <#
  foreach(var en in (Categories[])Enum.GetValues(typeof(Categories)))
  {#>
-public static class <#=@en.ToString()#> { public const string Value = "<#=@en.ToString()#>";public const string Text = "<#=@GetDisplayName(en)#>";}
+    public static class <#=@en.ToString()#> { public const string Value = "<#=@en.ToString()#>";public const string Text = "<#=@GetDisplayName(en)#>";}
 <#}#>
+} 
 <#+
     private  string GetDisplayName(Enum value)
     {
@@ -46,10 +41,8 @@ public static class <#=@en.ToString()#> { public const string Value = "<#=@en.To
         var attribute = memberInfo!.GetCustomAttribute<DisplayAttribute>();
         return attribute != null ? attribute.GetName() : "";
     }
-
 public enum Categories
 {
-
     [Display(Name = "Select")]
     MakeSelect = 0,
     [Display(Name = "Space Travel")]
