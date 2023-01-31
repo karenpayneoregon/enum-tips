@@ -27,7 +27,7 @@ public class IndexModel : PageModel
         if (Book.Category == BookCategories.Select)
         {
             Message = "Please select a <span class=\"text-danger fw-bold\">category</span>";
-            return new PageResult();
+            return Page();
         }
 
         return RedirectToPage("Receiving", new { category = Book.Category });
