@@ -51,10 +51,27 @@ internal class OperationsEnums
         {
             var parts = currentLine.Split(',');
 
+            /*
+             * Pattern matching works as expected but Enum.Parse fails as it is
+             * not case insensitive so we have a try-catch to show TryParse works.
+             */
             if (parts is [_, _, "Beverages" or "beverages" or "DairyProducts" or "GrainsCereals" or "Produce", var amount])
             {
-                AnsiConsole.MarkupLine($"      [cyan]Match[/] [[{string.Join(",", parts)}]]");
-                AnsiConsole.MarkupLine($"             [yellow]{Enum.Parse(typeof(Category), parts[2])}[/] [green]{amount}[/]");
+
+                try
+                {
+                    AnsiConsole.MarkupLine($"      [cyan]Match[/] [[{string.Join(",", parts)}]]");
+                    AnsiConsole.MarkupLine($"             [yellow]{Enum.Parse(typeof(Category), parts[2])}[/] [green]{amount}[/]");
+                }
+                catch (Exception)
+                {
+                    var result = Enum.TryParse(parts[2], true, out Category category)
+                        ? $"Found: {category}"
+                        : $"[red]Could not find the specified[/] {nameof(Category)}.{parts[2]}";
+
+                    AnsiConsole.MarkupLine($"\t[white on red]Parse failed but not TryParse[/] {result}");
+
+                }
             }
             else
             {

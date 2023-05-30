@@ -33,6 +33,8 @@ internal partial class Program
         //    Console.WriteLine($"{categories,-20} {categories.GetDisplayName()}");
         //}
 
+        var test = Enum.GetValues<BookCategories>()
+            .Select(x => new BookContainer(x, Helpers.GetDisplayName(x))).ToList();
 
         foreach (BookCategories categories in Enum.GetValues<BookCategories>())
         {

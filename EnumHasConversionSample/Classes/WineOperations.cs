@@ -15,13 +15,13 @@ public class WineOperations
 
         List<WineGroupItem> allWinesGrouped = context.Wines
             .GroupBy( wine => wine.WineType)
-            .Select(w => new WineGroupItem(w.Key, w.ToList()))
+            .Select(wineGrouped => new WineGroupItem(wineGrouped.Key, wineGrouped.ToList()))
             .ToList();
 
-        foreach (WineGroupItem top in allWinesGrouped)
+        foreach (WineGroupItem wineItem in allWinesGrouped)
         {
-            Console.WriteLine(top.Key);
-            foreach (var wine in top.List)
+            Console.WriteLine(wineItem.Key);
+            foreach (var wine in wineItem.List)
             {
                 Console.WriteLine($"\t{wine.WineId, -5}{wine.Name}");
             }
@@ -35,7 +35,7 @@ public class WineOperations
         Console.WriteLine("All");
         Console.ResetColor();
 
-        foreach (var wine in allWines)
+        foreach (Wine wine in allWines)
         {
             Console.WriteLine($"{wine.WineType,-8}{wine.Name}");
         }
@@ -54,9 +54,9 @@ public class WineOperations
         }
         else
         {
-            foreach (var wine in rose)
+            foreach (Wine roseWine in rose)
             {
-                Console.WriteLine($"{wine.Name,30}");
+                Console.WriteLine($"{roseWine.Name,30}");
             }
         }
 
@@ -64,8 +64,8 @@ public class WineOperations
         Console.WriteLine("Red");
         Console.ResetColor();
 
-        List<Wine> red = context.Wines.Where(wine => wine.WineType == WineType.Red).ToList();
-        foreach (var wine in red)
+        List<Wine> redWines = context.Wines.Where(wine => wine.WineType == WineType.Red).ToList();
+        foreach (Wine wine in redWines)
         {
             Console.WriteLine($"{wine.Name,30}");
         }

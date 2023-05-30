@@ -1,4 +1,6 @@
-﻿namespace KP_ConsoleAppNet71;
+﻿using System;
+
+namespace KP_ConsoleAppNet71;
 
 internal partial class Program
 {
