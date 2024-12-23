@@ -1,6 +1,4 @@
 using Bogus;
-using System.Data;
-using System.Windows.Forms;
 using WinFormsListBoxApp.Classes;
 
 namespace WinFormsListBoxApp;
@@ -10,6 +8,7 @@ public partial class Form1 : Form
     private string _fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "companies.txt");
     public Form1()
     {
+
         InitializeComponent();
 
         if (!File.Exists(_fileName))
