@@ -3,6 +3,5 @@
 internal static class DateOnlyExtensions
 {
     public static bool IsWeekend(this DateOnly sender)
-        => (sender.DayOfWeek == DayOfWeek.Sunday || 
-            sender.DayOfWeek == DayOfWeek.Saturday);
+        => sender.DayOfWeek is DayOfWeek.Sunday or DayOfWeek.Saturday;
 }

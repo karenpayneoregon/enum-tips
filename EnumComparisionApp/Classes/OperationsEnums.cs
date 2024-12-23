@@ -67,9 +67,9 @@ internal class OperationsEnums
                 {
                     var result = Enum.TryParse(parts[2], true, out Category category)
                         ? $"Found: {category}"
-                        : $"[red]Could not find the specified[/] {nameof(Category)}.{parts[2]}";
+                        : $"[red]Could not find the specified[/] {nameof(Category)}.{parts[2]} with case sensitive";
 
-                    AnsiConsole.MarkupLine($"\t[white on red]Parse failed but not TryParse[/] {result}");
+                    AnsiConsole.MarkupLine($"\t[white on red]Parse failed but not TryParse case insensitive[/] {result}");
 
                 }
             }

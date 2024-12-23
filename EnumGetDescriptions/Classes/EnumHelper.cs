@@ -23,8 +23,8 @@ public static class EnumHelper
 
     public static List<BookContainer> Container<T>()
     {
-        List<KeyValuePair<string, Enum>> data = GetItemsAsDictionary<T>();
-        return data.Select(category 
+        List<KeyValuePair<string, Enum>> kvp = GetItemsAsDictionary<T>();
+        return kvp.Select(category 
             => new BookContainer() { Name = category.Value, Description = category.Key })
             .ToList();
     }
