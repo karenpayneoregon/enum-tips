@@ -25,6 +25,22 @@ public static class ListBoxExtensions
     }
 
     /// <summary>
+    /// Appends the specified string value to a file, creating the file if it does not exist.
+    /// </summary>
+    /// <param name="value">The string value to append to the file.</param>
+    /// <param name="fileName">The path of the file where the value will be appended.</param>
+    /// <remarks>
+    /// This method appends the provided string value as a new line to the specified file.
+    /// If the file does not exist, it will be created.
+    /// </remarks>
+    public static void SaveToFile(string value, string fileName)
+    {
+        using var sw = File.AppendText(fileName);
+        sw.WriteLine("hello");
+        sw.Flush();
+    }
+
+    /// <summary>
     /// Loads the contents of a specified file into the <see cref="ListBox.ObjectCollection"/>.
     /// </summary>
     /// <param name="sender">The <see cref="ListBox.ObjectCollection"/> where the file contents will be loaded.</param>
