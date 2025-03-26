@@ -25,12 +25,17 @@ public class Operations
     private static string tableName = "";
 
     /// <summary>
-    /// Generates a C# enum file based on wine type data from a JSON file.
+    /// Generates a C# enum file based on wine type data retrieved from a JSON file.
     /// </summary>
     /// <remarks>
-    /// This method reads a JSON file containing wine type data, deserializes it into a list of wine type entries,
-    /// and generates a C# enum file. Each enum member corresponds to a wine type, with its name and value derived
-    /// from the JSON data. The enum file is saved to a predefined output path.
+    /// This method performs the following operations:
+    /// <list type="bullet">
+    /// <item>Reads wine type data from a JSON file.</item>
+    /// <item>Deserializes the JSON data into a list of wine type entries.</item>
+    /// <item>Generates a C# enum file where each enum member represents a wine type, 
+    /// with its name and value derived from the JSON data.</item>
+    /// <item>Saves the generated enum file to a predefined output path.</item>
+    /// </list>
     /// </remarks>
     /// <exception cref="FileNotFoundException">
     /// Thrown if the input JSON file is not found at the specified path.
@@ -43,10 +48,11 @@ public class Operations
     /// </exception>
     public static void GenerateWineTypeEnum()
     {
-        var json = File.ReadAllText(inputPath);
+        var json = GenerateWineTypesJson();
         var wineTypes = JsonSerializer.Deserialize<List<WineTypeEntry>>(json);
 
         StringBuilder sb = new();
+
         sb.AppendLine("using System.ComponentModel;");
         sb.AppendLine($"namespace {DirectoryHelper.AssemblyName}.Models;");
         sb.AppendLine();
@@ -55,7 +61,7 @@ public class Operations
 
         foreach (var wine in wineTypes.OrderBy(w => w.Id))
         {
-            string description = wine.Description.Replace("\"", "\\\"");
+            var description = wine.Description.Replace("\"", "\\\"");
             sb.AppendLine($"    [Description(\"{description}\")]");
             sb.AppendLine($"    {wine.TypeName} = {wine.Id},");
             sb.AppendLine();
@@ -82,7 +88,7 @@ public class Operations
     /// <exception cref="IOException">
     /// Thrown if an error occurs while writing the JSON file to disk.
     /// </exception>
-    public static void GenerateWineTypesJson()
+    private static string GenerateWineTypesJson()
     {
         const string query = 
             """
@@ -99,7 +105,7 @@ public class Operations
         File.WriteAllText("wine-types.json", JsonSerializer.Serialize(wineEntries, Indented));
 
         AnsiConsole.MarkupLine("[cyan]wine-types.json[/] [yellow]has been created successfully.[/]");
-
+        return JsonSerializer.Serialize(wineEntries, Indented);
     }
 
     public static JsonSerializerOptions Indented => new() { WriteIndented = true };
