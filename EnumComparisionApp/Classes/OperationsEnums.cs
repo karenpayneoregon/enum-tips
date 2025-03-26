@@ -10,9 +10,7 @@ internal class OperationsEnums
 
         List<string> list = new()
         {
-            "DairyProducts", "dairyproducts",
-            "GrainsAndCereals",
-            "Beverages", "BEVERAGES"
+            "DairyProducts", "dairyproducts", "GrainsAndCereals", "Beverages", "BEVERAGES"
         };
 
         AnsiConsole.MarkupLine("[yellow]Enum.TryParse case insensitive[/]");
@@ -53,7 +51,7 @@ internal class OperationsEnums
 
             /*
              * Pattern matching works as expected but Enum.Parse fails as it is
-             * not case insensitive so we have a try-catch to show TryParse works.
+             * not case-insensitive so we have a try-catch to show TryParse works.
              */
             if (parts is [_, _, "Beverages" or "beverages" or "DairyProducts" or "GrainsCereals" or "Produce", var amount])
             {

@@ -1,4 +1,5 @@
-﻿using EnumHasConversionSample.Classes;
+﻿using ConsoleConfigurationLibrary.Classes;
+using EnumHasConversionSample.Classes;
 using EnumHasConversionSample.Data;
 
 namespace EnumHasConversionSample;
@@ -9,8 +10,17 @@ internal partial class Program
     {
         using var context = new WineContext();
 
-        context.Database.EnsureDeleted();
-        context.Database.EnsureCreated();
+        if ( EntitySettings.Instance.CreateNew == false)
+        {
+            
+        }
+
+        if (EntitySettings.Instance.CreateNew)
+        {
+            context.Database.EnsureDeleted();
+            context.Database.EnsureCreated();
+        }
+
         WineOperations.Run();
 
         Console.WriteLine("Finished");
