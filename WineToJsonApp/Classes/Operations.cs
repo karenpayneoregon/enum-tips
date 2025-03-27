@@ -69,7 +69,7 @@ public class Operations
 
         sb.AppendLine("}");
 
-        //File.WriteAllText(_outputPath, sb.ToString());
+        File.WriteAllText(_outputPath, sb.ToString());
 
         AnsiConsole.MarkupLine($"[yellow]Enum generated:[/] [cyan]{_outputPath}[/]");
 
@@ -102,7 +102,7 @@ public class Operations
 
         var wineEntries = connection.Query<WineTypeEntry>(query);
 
-        File.WriteAllText("wine-types.json", JsonSerializer.Serialize(wineEntries, Indented));
+        //File.WriteAllText("wine-types.json", JsonSerializer.Serialize(wineEntries, Indented));
 
         AnsiConsole.MarkupLine("[cyan]wine-types.json[/] [yellow]has been created successfully.[/]");
         return JsonSerializer.Serialize(wineEntries, Indented);
