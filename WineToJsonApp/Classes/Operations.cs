@@ -16,13 +16,13 @@ namespace WineToJsonApp.Classes;
 public class Operations
 {
     // Where query results are stored in the executable directory
-    private static string inputPath = "wine-types.json";
+    private static readonly string InputPath = "wine-types.json";
 
     // Where the generated enum file is saved
-    private static string outputPath = Path.Combine(DirectoryHelper.GetProjectInfo().FullName, "Models", "WineType.cs");
+    private static string _outputPath = Path.Combine(DirectoryHelper.GetProjectInfo().FullName, "Models", "WineType.cs");
 
     // The name of the enum type from query table name without schema
-    private static string tableName = "";
+    private static string _tableName = "";
 
     /// <summary>
     /// Generates a C# enum file based on wine type data retrieved from a JSON file.
@@ -56,7 +56,7 @@ public class Operations
         sb.AppendLine("using System.ComponentModel;");
         sb.AppendLine($"namespace {DirectoryHelper.AssemblyName}.Models;");
         sb.AppendLine();
-        sb.AppendLine($"public enum {tableName}");
+        sb.AppendLine($"public enum {_tableName}");
         sb.AppendLine("{");
 
         foreach (var wine in wineTypes.OrderBy(w => w.Id))
@@ -69,9 +69,9 @@ public class Operations
 
         sb.AppendLine("}");
 
-        File.WriteAllText(outputPath, sb.ToString());
+        //File.WriteAllText(_outputPath, sb.ToString());
 
-        AnsiConsole.MarkupLine($"[yellow]Enum generated:[/] [cyan]{outputPath}[/]");
+        AnsiConsole.MarkupLine($"[yellow]Enum generated:[/] [cyan]{_outputPath}[/]");
 
     }
 
@@ -97,7 +97,7 @@ public class Operations
             ORDER BY TypeName
             """;
 
-        tableName = SqlHelper.GetTableNameWithoutSchema(query);
+        _tableName = SqlHelper.GetTableNameWithoutSchema(query);
         using var connection = new SqlConnection(AppConnections.Instance.MainConnection);
 
         var wineEntries = connection.Query<WineTypeEntry>(query);
