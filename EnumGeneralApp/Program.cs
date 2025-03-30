@@ -1,4 +1,4 @@
-﻿using static EnumGeneralApp.EnumUtils;
+﻿using static EnumGeneralApp.Classes.EnumUtils;
 
 namespace EnumGeneralApp;
 
@@ -7,8 +7,7 @@ internal partial class Program
     static void Main(string[] args)
     {
 
-        var map = EnumNamedValues<Rainbow>();
-
+        var map = ToDictionary<Rainbow>();
         foreach (var pair in map)
         {
             Console.WriteLine($"{pair.Key,-4}{pair.Value}");
@@ -20,11 +19,8 @@ internal partial class Program
         Console.WriteLine(map1);
         Console.WriteLine(map2);
 
-        AnsiConsole.MarkupLine("[yellow]Hello[/]");
+        AnsiConsole.MarkupLine("[yellow]Exit[/]");
         Console.ReadLine();
     }
 
-    /*
-     * https://github.com/dotnet/samples/blob/3ee82879284e3f4755251fd33c3b3e533f7b3485/snippets/csharp/keywords/GenericWhereConstraints.cs#L180-L190
-     */
 }

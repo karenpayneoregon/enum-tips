@@ -1,6 +1,9 @@
 ﻿#pragma warning disable CS8618
 namespace EnumGetDescriptions.Models;
 
+/// <summary>
+/// Represents a container for books, associating an enumeration value with its description.
+/// </summary>
 public class BookContainer : IEquatable<BookContainer>
 {
     public Enum Name { get; set; }

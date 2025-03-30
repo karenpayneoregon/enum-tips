@@ -6,13 +6,13 @@ public enum BookCategories
 {
     [Description("Options")]
     Select = 0,
-    [Description("Space Travel")]
+    [Description("Space Travel like Star wars")]
     SpaceTravel = 1,
-    [Description("Adventure")]
+    [Description("Adventure let's go")]
     Adventure = 2,
-    [Description("Popular sports")]
+    [Description("Popular sports like baseball")]
     Sports = 3,
-    [Description("Cars")]
+    [Description("Cars zoom")]
     Automobile = 4,
     [Description("Programming with C#")]
     Programming = 5

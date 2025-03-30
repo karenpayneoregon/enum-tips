@@ -8,10 +8,8 @@ internal class OperationsEnums
     {
         Helpers.Print();
 
-        List<string> list = new()
-        {
-            "DairyProducts", "dairyproducts", "GrainsAndCereals", "Beverages", "BEVERAGES"
-        };
+        List<string> list = 
+            ["DairyProducts", "dairyproducts", "GrainsAndCereals", "Beverages", "BEVERAGES"];
 
         AnsiConsole.MarkupLine("[yellow]Enum.TryParse case insensitive[/]");
         foreach (var item in list)
@@ -23,13 +21,13 @@ internal class OperationsEnums
         }
 
         Console.WriteLine();
-        AnsiConsole.MarkupLine("[yellow]Enum.TryParse case sensitive[/]");
-        foreach (var item in list)
-        {
-            AnsiConsole.MarkupLine(Enum.TryParse(item, out Category categoryNotFound)
-                ? $"Found: {categoryNotFound}"
-                : $"[red]Could not find the specified[/] {nameof(Category)}.{item}");
-        }
+        //AnsiConsole.MarkupLine("[yellow]Enum.TryParse case sensitive[/]");
+        //foreach (var item in list)
+        //{
+        //    AnsiConsole.MarkupLine(Enum.TryParse(item, out Category categoryNotFound)
+        //        ? $"Found: {categoryNotFound}"
+        //        : $"[red]Could not find the specified[/] {nameof(Category)}.{item}");
+        //}
 
         Console.WriteLine();
 
