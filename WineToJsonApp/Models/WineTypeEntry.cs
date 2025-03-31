@@ -1,4 +1,4 @@
-﻿namespace WineToJsonApp;
+﻿namespace WineToJsonApp.Models;
 
 public class WineTypeEntry
 {

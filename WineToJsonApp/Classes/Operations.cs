@@ -3,6 +3,7 @@ using System.Text;
 using System.Text.Json;
 using Dapper;
 using ConsoleConfigurationLibrary.Classes;
+using WineToJsonApp.Models;
 
 namespace WineToJsonApp.Classes;
 

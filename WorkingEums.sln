@@ -38,6 +38,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Converters", "Converters", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WineToJsonApp", "WineToJsonApp\WineToJsonApp.csproj", "{29E80D62-4B7A-4022-82A4-2E2B322E2763}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WineApp", "WineApp\WineApp.csproj", "{459866A2-7C87-4A31-A0A0-905772013DAC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -96,6 +98,10 @@ Global
 		{29E80D62-4B7A-4022-82A4-2E2B322E2763}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29E80D62-4B7A-4022-82A4-2E2B322E2763}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29E80D62-4B7A-4022-82A4-2E2B322E2763}.Release|Any CPU.Build.0 = Release|Any CPU
+		{459866A2-7C87-4A31-A0A0-905772013DAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{459866A2-7C87-4A31-A0A0-905772013DAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{459866A2-7C87-4A31-A0A0-905772013DAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{459866A2-7C87-4A31-A0A0-905772013DAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -103,6 +109,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{FD9F070C-9420-41F5-9FA8-30383E47ADEF} = {7B6402A6-F078-4069-B426-F07DF813F56A}
 		{29E80D62-4B7A-4022-82A4-2E2B322E2763} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{459866A2-7C87-4A31-A0A0-905772013DAC} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {19B0CC37-558B-4659-8E36-67B3EAE8E133}
