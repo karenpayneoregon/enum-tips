@@ -55,6 +55,7 @@ public class Operations
         StringBuilder sb = new();
 
         sb.AppendLine("using System.ComponentModel;");
+        sb.AppendLine("using System.ComponentModel.DataAnnotations;");
         sb.AppendLine($"namespace {DirectoryHelper.AssemblyName}.Models;");
         sb.AppendLine();
         sb.AppendLine($"public enum {_tableName}");
@@ -64,6 +65,7 @@ public class Operations
         {
             var description = wine.Description.Replace("\"", "\\\"");
             sb.AppendLine($"    [Description(\"{description}\")]");
+            sb.AppendLine($"    [Display(Name =\"{description}\")]");
             sb.AppendLine($"    {wine.TypeName} = {wine.Id},");
             sb.AppendLine();
         }

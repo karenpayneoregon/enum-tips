@@ -7,7 +7,7 @@
 /// This class is used to group wines by their associated <see cref="WineType"/> and provides
 /// additional metadata such as the type name for display purposes.
 /// </remarks>
-public class WineGroupItem(WineType key, List<Wines> list, string typeName)
+public class WineGroup(WineType key, List<Wines> list, string typeName)
 {
     public WineType Key { get; } = key;
     public List<Wines> List { get; } = list;

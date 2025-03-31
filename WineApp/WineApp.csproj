@@ -8,11 +8,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<None Remove="Chat.md" />
 		<None Remove="readme.md" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<Content Include="assets\csharp.ico" />
+		<Content Include="Chat.md" />
 		<Content Include="readme.md" />
 	</ItemGroup>
 

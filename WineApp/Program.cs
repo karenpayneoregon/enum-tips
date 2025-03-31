@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using WineApp.Data;
 using WineApp.Models;
 
@@ -13,12 +14,11 @@ internal partial class Program
 
         using var context = new Context();
 
-
         AnsiConsole.MarkupLine("[white]Grouped[/]");
 
-        var allWinesGrouped = context.Wines
+        var allWinesGrouped = context.Wines.AsNoTracking()
             .GroupBy(wine => wine.WineType)
-            .Select(w => new WineGroupItem(
+            .Select(w => new WineGroup(
                 context.WineType.FirstOrDefault(wt => wt.Id == w.Key),
                 w.OrderBy(wine => wine.Name).ToList(),
                 context.WineType.FirstOrDefault(wt => wt.Id == w.Key).TypeName))

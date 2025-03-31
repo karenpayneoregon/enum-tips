@@ -3,8 +3,10 @@ using ConsoleConfigurationLibrary.Classes;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using WineApp.Data.Configurations;
 using WineApp.Models;
+using Microsoft.Extensions.Logging;
 #nullable disable
 
 namespace WineApp.Data;
@@ -25,7 +27,10 @@ public partial class Context : DbContext
     public virtual DbSet<Wines> Wines { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer(AppConnections.Instance.MainConnection);
+    {
+        optionsBuilder.UseSqlServer(AppConnections.Instance.MainConnection)
+            .LogTo(message => Debug.WriteLine(message), LogLevel.Information);
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
