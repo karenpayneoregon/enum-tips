@@ -1,0 +1,34 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="container mt-4">
+    
+    <h1 class="mb-4">Wine List</h1>
+
+    @foreach (var group in Model.WineGroups)
+    {
+        <div class="mb-5">
+
+            <h2 class="mb-3">@group.TypeName</h2>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+
+                @foreach (var wine in group.List)
+                {
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body" style="background-color:lightcyan">
+                                <h3 class="card-title">@wine.Name</h3>
+                                <p class="card-text"><small class="text-muted">Wine ID: @wine.WineId</small></p>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    }
+</div>

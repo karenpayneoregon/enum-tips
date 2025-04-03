@@ -13,10 +13,9 @@ internal partial class Program
     [ModuleInitializer]
     public static void Init()
     {
-        AnsiConsole.MarkupLine("");
         Console.Title = "Code sample";
-        WindowUtility.SetConsoleWindowPosition(WindowUtility.AnchorWindow.Center);
 
+        WindowUtility.SetConsoleWindowPosition(WindowUtility.AnchorWindow.Center);
         var services = ConfigureServices();
         using var provider = services.BuildServiceProvider();
         var setup = provider.GetService<SetupServices>();

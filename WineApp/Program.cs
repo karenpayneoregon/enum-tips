@@ -1,9 +1,4 @@
-﻿using Dapper;
-using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
-using WineApp.Classes;
-using WineApp.Data;
-using WineApp.Models;
+﻿using WineApp.Classes;
 
 namespace WineApp;
 
@@ -13,7 +8,7 @@ internal partial class Program
     {
 
         AnsiConsole.MarkupLine("[yellow]Dapper[/]");
-        var groupedWines = WineService.WineGroups();
+        var groupedWines = WineService.WineGroupsDapper();
 
         foreach (var group in groupedWines)
         {
@@ -29,20 +24,8 @@ internal partial class Program
 
 
         AnsiConsole.MarkupLine("[yellow]EF Core[/]");
-
-        using var context = new Context();
-
-        var wineTypes = context.WineType.AsNoTracking()
-            .ToDictionary(wt => wt.Id, wt => wt.TypeName);
-
-        var allWinesGrouped = context.Wines.AsNoTracking()
-            .GroupBy(wine => wine.WineType)
-            .Select(w => new WineGroup(
-                new WineType { Id = w.Key, TypeName = wineTypes[w.Key] },
-                w.OrderBy(wine => wine.Name).ToList(),
-                wineTypes[w.Key]))
-            .ToList();
-
+        
+        var allWinesGrouped = WineService.WineGroupsEf();
         foreach (var wineGroup in allWinesGrouped)
         {
             AnsiConsole.MarkupLine($"[cyan]{wineGroup.TypeName}[/]");
@@ -51,13 +34,7 @@ internal partial class Program
                 Console.WriteLine($"   {wine.Name}");
             }
         }
-
-
-
-
+        
         Console.ReadLine();
     }
-
-
-
 }
