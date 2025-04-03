@@ -18,3 +18,6 @@ There is no exception handling in this project.  It is a simple project to demon
 ## Summary
 
 Although T4 templates work well, they can be difficult for developers to create, which can be tedious. So, I did a project that creates an enum from a database table using AI to write most of the code. The code generation is just over one hundred lines, while the T4 is just over fifty lines. However, remember that T4 templates are not something most developers know how to write.
+
+
+Password is `P@ssw0rd!` for the database.  The password is in the `appsettings.json` file.  You can change it to your own password if you want.  Just make sure to update the connection string in the `appsettings.json` file.
