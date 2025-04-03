@@ -9,8 +9,9 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        builder.Services.AddSingleton<IWineService>(provider =>
-            new WineService(builder.Configuration.GetConnectionString("MainConnection")!));
+        builder.Services.AddScoped<IWineService>(provider =>
+            new WineService(
+                builder.Configuration.GetConnectionString("MainConnection")!));
 
         builder.Services.AddRazorPages();
 
