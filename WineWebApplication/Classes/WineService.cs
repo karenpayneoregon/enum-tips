@@ -20,13 +20,14 @@ public class WineService : IWineService
     {
         using IDbConnection connection = new SqlConnection(_connectionString);
 
-        var sql = """
-                  SELECT 
-                      w.WineId, w.Name, w.WineType,
-                      wt.Id, wt.TypeName, wt.Description
-                  FROM Wines w
-                  INNER JOIN WineType wt ON w.WineType = wt.Id
-                  """;
+        const string sql = 
+            """
+            SELECT 
+                w.WineId, w.Name, w.WineType,
+                wt.Id, wt.TypeName, wt.Description
+            FROM Wines w
+            INNER JOIN WineType wt ON w.WineType = wt.Id
+            """;
 
         var wineWithTypes = connection.Query<Wines, WineType, WineWithType>(sql,
             (wine, type) => new WineWithType

@@ -19,4 +19,8 @@
 		<PackageReference Include="Dapper" Version="2.1.66" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="assets\" />
+	</ItemGroup>
+
 </Project>
