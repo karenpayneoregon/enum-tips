@@ -4,6 +4,7 @@ using System.Text.Json;
 using Dapper;
 using ConsoleConfigurationLibrary.Classes;
 using WineToJsonApp.Models;
+#pragma warning disable CS0414 // Field is assigned but its value is never used
 
 namespace WineToJsonApp.Classes;
 

@@ -21,6 +21,21 @@ public static class EnumHelper
             .ToList();
 
 
+    /// <summary>
+    /// Converts an enumeration of type <typeparamref name="T"/> into a list of 
+    /// <see cref="BookContainer"/> objects, where each container associates an 
+    /// enumeration value with its description.
+    /// </summary>
+    /// <typeparam name="T">
+    /// The enumeration type to process. Must be an enum.
+    /// </typeparam>
+    /// <returns>
+    /// A list of <see cref="BookContainer"/> objects, each containing an enumeration 
+    /// value and its corresponding description.
+    /// </returns>
+    /// <exception cref="InvalidOperationException">
+    /// Thrown if <typeparamref name="T"/> is not an enumeration type.
+    /// </exception>
     public static List<BookContainer> Container<T>()
     {
         List<KeyValuePair<string, Enum>> kvp = GetItemsAsDictionary<T>();
