@@ -74,7 +74,7 @@ Although this works, if a key changes or not typed in properly the method will d
 A better option, rather than passing the key as a string, use a `enum`
 
 ```csharp
-public enum PropertyAlias
+public enum Column
 {
     FirstName,
     LastName,
@@ -86,14 +86,14 @@ public enum PropertyAlias
 Now the key is a enum which means no mistakes as with a string shown above.
 
 ```csharp
-public static IQueryable<Customers> OrderByEnum(this IQueryable<Customers> query, PropertyAlias key, Direction direction = Direction.Ascending)
+public static IQueryable<Customers> OrderByEnum(this IQueryable<Customers> query, Column key, Direction direction = Direction.Ascending)
 {
     Expression<Func<Customers, object>> exp = key switch
     {
-        PropertyAlias.LastName => customer => customer.Contact.LastName,
-        PropertyAlias.FirstName => customer => customer.Contact.FirstName,
-        PropertyAlias.CountryName => customer => customer.CountryNavigation.Name,
-        PropertyAlias.Title => customer => customer.ContactTypeNavigation.ContactTitle,
+        Column.LastName => customer => customer.Contact.LastName,
+        Column.FirstName => customer => customer.Contact.FirstName,
+        Column.CountryName => customer => customer.CountryNavigation.Name,
+        Column.Title => customer => customer.ContactTypeNavigation.ContactTitle,
         _ => customer => customer.CompanyName
     };
 
@@ -107,7 +107,7 @@ Usage
 await using var context = new NorthWindContext();
 List<Customers> customers = await context.Customers
     .Include(c => c.CountryNavigation)
-    .OrderByEnum(PropertyAlias.CountryName, Direction.Ascending)
+    .OrderByEnum(Column.CountryName, Direction.Ascending)
     .ToListAsync();
 ```
 
