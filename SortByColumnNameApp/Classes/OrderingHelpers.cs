@@ -14,7 +14,8 @@ public static class OrderingHelpers
     /// <param name="key">key to sort by</param>
     /// <param name="direction">direction to sort by</param>
     /// <returns>query with order by</returns>
-    public static IQueryable<Customers> OrderByEnum(this IQueryable<Customers> query, Column key, Direction direction = Direction.Ascending)
+    public static IQueryable<Customers> OrderByEnum(
+        this IQueryable<Customers> query, Column key, Direction direction = Direction.Ascending)
     {
         Expression<Func<Customers, object>> exp = key switch
         {
