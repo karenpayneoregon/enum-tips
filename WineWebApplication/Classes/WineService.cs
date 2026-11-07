@@ -14,15 +14,8 @@ namespace WineWebApplication.Classes;
 /// This class implements the <see cref="IWineService"/> interface, offering functionality
 /// to retrieve and group wines by their associated types. 
 /// </remarks>
-public class WineService : IWineService
+public class WineService(string connectionString) : IWineService
 {
-    private readonly string _connectionString;
-
-    public WineService(string connectionString)
-    {
-        _connectionString = connectionString;
-    }
-
     /// <summary>
     /// Retrieves a list of wine groups, where each group contains wines categorized by their associated wine type.
     /// </summary>
@@ -31,7 +24,7 @@ public class WineService : IWineService
     /// </returns>
     public List<WineGroup> GetWineGroups()
     {
-        using IDbConnection connection = new SqlConnection(_connectionString);
+        using IDbConnection connection = new SqlConnection(connectionString);
 
         const string sql = 
             """
